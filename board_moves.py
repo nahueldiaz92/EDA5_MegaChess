@@ -39,7 +39,9 @@ def moving_white(board):
                     white_capture.insert(0,[row, col, row-1,col+1])
                 if row < 12 and empty_square(board, row -1,col):
                     white_move.append([row, col, row-1,col])
-                if row == 12 or 13 and empty_square(board, row-2, col):
+                if row == 12 and empty_square(board, row-2, col):
+                    white_move.append([row, col, row-2,col])
+                if row == 13 and empty_square(board, row-2, col):
                     white_move.append([row, col, row-2,col])
             if board[row][col] == "Q":
                 if row < 15 and col < 15 and is_black_piece(board,row+1,col+1):
@@ -125,15 +127,13 @@ def moving_black(board):
                     black_capture.append([row, col, row+1,col-1])
                 if col < 15 and is_white_piece(board, row+1, col+1):
                     black_capture.append([row, col, row+1,col+1])
-                if row > 3 and empty_square(board,row+1,col):
-                    black_move.append([row, col, row+1, col])
                 if row == 3 and empty_square(board, row+2, col) and empty_square(board, row+1, col):
                     black_move.append([row, col, row +2, col])
                 if row == 2 and empty_square(board, row+2, col) and empty_square(board, row+1, col):
-                    black_move.append([row, col, row +2, col])
-                
-                if empty_square(board, row+1, col):
+                    black_move.append([row, col, row +2, col])    
+                if row > 3 and empty_square(board,row+1,col):
                     black_move.append([row, col, row+1, col])
+
             if board[row][col] == "q":
                 if row < 15 and col < 15 and is_white_piece(board,row+1,col+1):
                     black_capture.append([row,col,row+1,col+1])

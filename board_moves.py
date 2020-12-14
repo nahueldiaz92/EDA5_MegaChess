@@ -1,6 +1,6 @@
 import numpy as np
 
-
+#convert the board string into a 16x16 board
 def get_board(board_str):
 
     board = np.array(list(board_str), dtype=str)
@@ -8,25 +8,32 @@ def get_board(board_str):
     print(board)
     return(board)
 
+#defines black and white pieces
 black_piece = "prkhbq"
 white_piece = "PRQHBK"
 
+#check if the position in the board is empty
 def empty_square(board, row, col):
     if board[row][col] == " ":
         return True
     return False
 
+#check if the position in the board is a black piece
 def is_black_piece(board, row, col):
     if board[row][col] in black_piece:
         return True
     return False
 
+#check if the position in the board is a white piece
 def is_white_piece(board, row, col):
     if board[row][col] in white_piece:
         return True
     return False
 
-
+"""
+Check the complete board to find possible moves, and return a list of capture moves,
+or a list of regular moves if there is no capture moves
+"""
 def moving_white(board):
     white_move = []
     white_capture = []
@@ -111,11 +118,17 @@ def moving_white(board):
                     white_capture.append([row,col,row,col-1])
                 if row < 15 and col > 0 and is_black_piece(board,row+1,col-1):
                     white_capture.append([row,col,row+1,col-1])
+                   
+    #The caoture list is reversed so it takes priority for defensive moves
     if white_capture != []:
         return list(reversed(white_capture))
     else:
         return white_move
 
+"""
+Check the complete board to find possible moves, and return a list of capture moves,
+or a list of regular moves if there is no capture moves
+"""
 
 def moving_black(board):
     black_move = []
@@ -202,6 +215,7 @@ def moving_black(board):
                     black_capture.append([row,col,row,col-1])
                 if row < 15 and col > 0 and is_white_piece(board,row+1,col-1):
                     black_capture.append([row,col,row+1,col-1])
+  #The move list is reversed so it takes priority in offensive moves
     if black_capture != []:
         return black_capture
     else:

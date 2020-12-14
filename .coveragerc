@@ -1,2 +1,2 @@
-omit = test/*
-omit = home/*
+omit = tests/*
+omit = home/travis/virtualenv/*

@@ -2,7 +2,6 @@
 
 [![Build Status](https://travis-ci.com/nahueldiaz92/EDA5_MegaChess.svg?branch=main)](https://travis-ci.com/nahueldiaz92/EDA5_MegaChess)
 
-[![Coverage Status](https://coveralls.io/repos/github/nahueldiaz92/EDA5_MegaChess/badge.svg?branch=main&service=github)](https://coveralls.io/github/nahueldiaz92/EDA5_MegaChess?branch=main) Hay un error con coveralls pero hay mas de 95% de coverage con los test
 
 MegaChess es un juego por código donde los participantes, mediante inteligencia artificial, deben competir. Este juego guarda un parecido al Ajedrez. 
 
